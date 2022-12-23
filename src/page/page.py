@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from starlette.responses import HTMLResponse
 
-router_app = APIRouter()
+router_app = APIRouter(include_in_schema=False)
 
 html = """
 <!DOCTYPE html>
