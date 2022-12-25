@@ -4,6 +4,8 @@ from typing import List, Union
 import aiohttp
 from pydantic import BaseModel
 
+from settings import setting
+
 LINK_MOVIE = "https://api.kinopoisk.dev/movie"
 
 
@@ -33,7 +35,7 @@ async def get_information() -> Union[Movie, RequestError]:
         "search": "!null",
         "selectField": "id name top250",
         "limit": "5",
-        "token": "setting.token_kinopoisk_dev",
+        "token": setting.token_kinopoisk_dev,
     }
 
     async with aiohttp.ClientSession() as session:
@@ -42,7 +44,3 @@ async def get_information() -> Union[Movie, RequestError]:
             if response.status == 200:
                 return Movie(**data_json)
             return RequestError(**data_json)
-
-
-if __name__ == "__main__":
-    asyncio.run(get_information())
