@@ -1,10 +1,8 @@
 import asyncio
-from typing import List
+from typing import List, Union
 
 import aiohttp
 from pydantic import BaseModel
-
-from src.settings import setting
 
 LINK_MOVIE = "https://api.kinopoisk.dev/movie"
 
@@ -25,20 +23,26 @@ class Movie(Page):
     docs: List[MovieModel]
 
 
-async def get_infomation() -> Movie:
+class RequestError(BaseModel):
+    message: str
+
+
+async def get_information() -> Union[Movie, RequestError]:
     params = {
         'field': "top250",
         "search": "!null",
         "selectField": "id name top250",
         "limit": "5",
-        "token": setting.token_kinopoisk_dev,
+        "token": "setting.token_kinopoisk_dev",
     }
 
     async with aiohttp.ClientSession() as session:
         async with session.get(LINK_MOVIE, params=params) as response:
-            json_Data = await response.json()
-            return Movie(**json_Data)
+            data_json = await response.json()
+            if response.status == 200:
+                return Movie(**data_json)
+            return RequestError(**data_json)
 
 
 if __name__ == "__main__":
-    asyncio.run(get_infomation())
+    asyncio.run(get_information())

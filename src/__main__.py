@@ -1,4 +1,5 @@
 import uvicorn
+
 from settings import setting
 
 if __name__ == "__main__":
