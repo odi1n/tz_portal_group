@@ -10,10 +10,6 @@
 4. Set `TOKEN_KINOPOISK_DEV` in file .env
 5. Docker build-run: `docker-compose up --build`
 
-### Warning
-
-`WebSocket` - does not have authorization for convenient verification via a web page
-
 ## Infomation
 
 Link - `localhost:8000`
