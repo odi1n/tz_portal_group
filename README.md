@@ -6,7 +6,9 @@
 
 1. Git clone: `git clone https://github.com/odi1n/tz_portal_group.git`
 2. Open directory: `cd tz_portal_group`
-3. Docker build-run: `docker-compose up --build`
+3. Change file env: `mv .env.example .env`
+4. Set `TOKEN_KINOPOISK_DEV` in file .env
+5. Docker build-run: `docker-compose up --build`
 
 ### Warning
 
