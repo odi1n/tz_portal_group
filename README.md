@@ -4,8 +4,8 @@
 
 ## Run
 
-1. Git clone: `git clone PATH`
-2. Open directory: `cd PATH`
+1. Git clone: `git clone https://github.com/odi1n/tz_portal_group.git`
+2. Open directory: `cd tz_portal_group`
 3. Docker build-run: `docker-compose up --build`
 
 ### Warning
