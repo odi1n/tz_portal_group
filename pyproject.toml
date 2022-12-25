@@ -21,6 +21,9 @@ python-multipart = "^0.0.5"
 
 
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.0"
+
 [tool.aerich]
 tortoise_orm = "src.settings.TORTOISE_ORM"
 location = "./migrations"
