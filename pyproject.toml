@@ -13,8 +13,18 @@ uvicorn = {extras = ["standard"], version = "^0.20.0"}
 websockets = "^10.4"
 aiohttp = "^3.8.3"
 pydantic = {extras = ["dotenv"], version = "^1.10.2"}
+tortoise-orm = {extras = ["asyncpg"], version = "^0.19.2"}
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+aerich = "^0.7.1"
+python-multipart = "^0.0.5"
 
 
+
+[tool.aerich]
+tortoise_orm = "src.settings.TORTOISE_ORM"
+location = "./migrations"
+src_folder = "./."
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
