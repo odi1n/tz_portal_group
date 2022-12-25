@@ -10,8 +10,8 @@ class Settings(BaseSettings):
         env_file = '.env'
         env_file_encoding = 'utf-8'
 
-    server_host: str = Field("localhost")
-    server_port: int = Field(8000)
+    server_host: str
+    server_port: int
 
     token_kinopoisk_dev: str = None
 
